@@ -1,0 +1,137 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard {
+  flex: 1;
+  background-color: $bg-secondary;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+}
+
+.alerts {
+  // AlertBanner styles handled in component
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.sectionHeader {
+  @include flex-between;
+  align-items: flex-start;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: $font-size-2xl;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.addButton {
+  @include button-primary;
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-sm;
+  white-space: nowrap;
+}
+
+.form {
+  // ReadingForm styles handled in component
+}
+
+.readingsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: $spacing-lg;
+}
+
+.readingCard {
+  // ReadingCard styles handled in component
+}
+
+.emptyState {
+  @include card;
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-2xl;
+  text-align: center;
+  color: $text-muted;
+  min-height: 300px;
+  
+  .emptyIcon {
+    font-size: 4rem;
+    margin-bottom: $spacing-lg;
+  }
+  
+  h3 {
+    margin: 0 0 $spacing-sm 0;
+    color: $text-secondary;
+    font-size: $font-size-xl;
+  }
+  
+  p {
+    margin: 0 0 $spacing-xl 0;
+    color: $text-muted;
+    max-width: 400px;
+  }
+  
+  .emptyButton {
+    @include button-primary;
+    padding: $spacing-md $spacing-xl;
+  }
+}
+
+.loadingContainer,
+.errorContainer {
+  @include flex-center;
+  min-height: 50vh;
+  padding: $spacing-xl;
+}
+
+@include mobile-only {
+  .main {
+    padding: $spacing-lg $spacing-md;
+    gap: $spacing-xl;
+  }
+  
+  .sectionHeader {
+    flex-direction: column;
+    align-items: stretch;
+    
+    .addButton {
+      align-self: flex-start;
+    }
+  }
+  
+  .sectionTitle {
+    font-size: $font-size-xl;
+  }
+  
+  .readingsGrid {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+  
+  .emptyState {
+    padding: $spacing-xl $spacing-lg;
+    min-height: 250px;
+    
+    .emptyIcon {
+      font-size: 3rem;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+.header {
+  background-color: $bg-primary;
+  border-bottom: 1px solid $border-color;
+  box-shadow: $shadow-sm;
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-lg $spacing-xl;
+  @include flex-between;
+  gap: $spacing-lg;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  
+  .title {
+    margin: 0;
+    font-size: $font-size-2xl;
+    font-weight: 700;
+    color: $text-primary;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+  
+  .subtitle {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    margin-top: -$spacing-xs;
+  }
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xl;
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    .statValue {
+      font-size: $font-size-xl;
+      font-weight: 700;
+      color: $primary-color;
+      line-height: 1;
+    }
+    
+    .statLabel {
+      font-size: $font-size-xs;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: $spacing-xs;
+    }
+  }
+  
+  .status {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
+    background-color: $bg-tertiary;
+    border-radius: $radius-md;
+    
+    .statusDot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      
+      &.online {
+        background-color: $success-color;
+        box-shadow: 0 0 4px rgba(16, 185, 129, 0.4);
+      }
+      
+      &.offline {
+        background-color: $error-color;
+        box-shadow: 0 0 4px rgba(239, 68, 68, 0.4);
+      }
+    }
+    
+    .statusText {
+      font-size: $font-size-sm;
+      font-weight: 500;
+      color: $text-secondary;
+    }
+  }
+}
+
+@include mobile-only {
+  .container {
+    padding: $spacing-md;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+  
+  .brand {
+    .title {
+      font-size: $font-size-xl;
+    }
+  }
+  
+  .stats {
+    gap: $spacing-lg;
+    align-self: stretch;
+    justify-content: space-between;
+    
+    .stat {
+      .statValue {
+        font-size: $font-size-lg;
+      }
+    }
+  }
+}

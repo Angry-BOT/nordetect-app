@@ -1,0 +1,165 @@
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Button styles
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-md;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-family: $font-family-base;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: $primary-color;
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background-color: $primary-hover;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: transparent;
+  color: $text-secondary;
+  border-color: $border-color;
+  
+  &:hover:not(:disabled) {
+    background-color: $bg-tertiary;
+    border-color: $border-hover;
+  }
+}
+
+// Card styles
+@mixin card {
+  background-color: $bg-primary;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  border: 1px solid $border-color;
+}
+
+@mixin card-hover {
+  @include card;
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-1px);
+  }
+}
+
+// Input styles
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-family: $font-family-base;
+  transition: all 0.2s ease-in-out;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgb(37 99 235 / 0.1);
+  }
+  
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+// Alert styles
+@mixin alert-base {
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  border: 1px solid;
+  margin-bottom: $spacing-md;
+}
+
+@mixin alert-error {
+  @include alert-base;
+  background-color: rgb(254 242 242);
+  border-color: rgb(252 165 165);
+  color: rgb(153 27 27);
+}
+
+@mixin alert-warning {
+  @include alert-base;
+  background-color: rgb(255 251 235);
+  border-color: rgb(253 224 71);
+  color: rgb(146 64 14);
+}
+
+@mixin alert-success {
+  @include alert-base;
+  background-color: rgb(240 253 244);
+  border-color: rgb(134 239 172);
+  color: rgb(21 128 61);
+}
+
+@mixin alert-info {
+  @include alert-base;
+  background-color: rgb(239 246 255);
+  border-color: rgb(147 197 253);
+  color: rgb(30 64 175);
+}
+
+// Loading spinner
+@mixin spinner {
+  border: 2px solid $border-color;
+  border-top: 2px solid $primary-color;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Responsive utilities
+@mixin mobile-only {
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}

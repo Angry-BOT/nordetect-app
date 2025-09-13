@@ -1,0 +1,104 @@
+.container {
+  @include card;
+  padding: $spacing-lg;
+  background-color: $bg-primary;
+}
+
+.chartWrapper {
+  position: relative;
+  height: 400px;
+  margin-bottom: $spacing-lg;
+}
+
+.noData {
+  @include flex-center;
+  flex-direction: column;
+  height: 400px;
+  color: $text-muted;
+  text-align: center;
+  
+  .noDataIcon {
+    font-size: 4rem;
+    margin-bottom: $spacing-lg;
+  }
+  
+  h3 {
+    margin: 0 0 $spacing-sm 0;
+    color: $text-secondary;
+    font-size: $font-size-lg;
+  }
+  
+  p {
+    margin: 0;
+    color: $text-muted;
+    max-width: 300px;
+  }
+}
+
+.thresholdInfo {
+  @include flex-between;
+  padding-top: $spacing-md;
+  border-top: 1px solid $border-color;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.threshold {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  
+  .thresholdLabel {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    font-weight: 500;
+  }
+  
+  .thresholdValue {
+    font-size: $font-size-sm;
+    color: $error-color;
+    font-weight: 600;
+    padding: $spacing-xs $spacing-sm;
+    background-color: rgb(254 242 242);
+    border-radius: $radius-sm;
+  }
+}
+
+.legend {
+  display: flex;
+  gap: $spacing-lg;
+  
+  .legendItem {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-size: $font-size-xs;
+    color: $text-secondary;
+    
+    .legendDot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+  }
+}
+
+@include mobile-only {
+  .container {
+    padding: $spacing-md;
+  }
+  
+  .chartWrapper {
+    height: 300px;
+  }
+  
+  .thresholdInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    
+    .legend {
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+  }
+}

@@ -1,0 +1,164 @@
+.card {
+  @include card-hover;
+  padding: $spacing-lg;
+  transition: all 0.2s ease-in-out;
+  
+  &.success {
+    border-left: 4px solid $success-color;
+  }
+  
+  &.warning {
+    border-left: 4px solid $warning-color;
+  }
+  
+  &.error {
+    border-left: 4px solid $error-color;
+  }
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+  
+  .deviceInfo {
+    .deviceName {
+      margin: 0 0 $spacing-xs 0;
+      font-size: $font-size-lg;
+      font-weight: 600;
+      color: $text-primary;
+    }
+    
+    .deviceId {
+      font-size: $font-size-sm;
+      color: $text-secondary;
+      font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    }
+  }
+  
+  .status {
+    .statusBadge {
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-md;
+      font-size: $font-size-xs;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      
+      &.success {
+        background-color: rgb(220 252 231);
+        color: rgb(21 128 61);
+      }
+      
+      &.warning {
+        background-color: rgb(255 251 235);
+        color: rgb(146 64 14);
+      }
+      
+      &.error {
+        background-color: rgb(254 242 242);
+        color: rgb(153 27 27);
+      }
+    }
+  }
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  margin-bottom: $spacing-lg;
+  
+  .metric {
+    @include flex-column;
+    align-items: center;
+    text-align: center;
+    
+    .label {
+      font-size: $font-size-sm;
+      color: $text-secondary;
+      margin-bottom: $spacing-xs;
+      font-weight: 500;
+    }
+    
+    .value {
+      font-size: $font-size-xl;
+      font-weight: 600;
+      color: $text-primary;
+      font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    }
+  }
+}
+
+.alerts {
+  background-color: rgb(254 242 242);
+  border: 1px solid rgb(252 165 165);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  margin-bottom: $spacing-lg;
+  
+  .alertTitle {
+    margin: 0 0 $spacing-sm 0;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: rgb(153 27 27);
+  }
+  
+  .alertList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    .alertReason {
+      font-size: $font-size-sm;
+      color: rgb(153 27 27);
+      margin-bottom: $spacing-xs;
+      padding-left: $spacing-sm;
+      position: relative;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      &::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: rgb(185 28 28);
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.footer {
+  border-top: 1px solid $border-color;
+  padding-top: $spacing-md;
+  
+  .timestamp {
+    font-size: $font-size-xs;
+    color: $text-muted;
+  }
+}
+
+@include mobile-only {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+  
+  .metrics {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+    
+    .metric {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+      
+      .value {
+        font-size: $font-size-lg;
+      }
+    }
+  }
+}

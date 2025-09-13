@@ -1,0 +1,37 @@
+.container {
+  @include alert-error;
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-xl;
+  text-align: center;
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.content {
+  .title {
+    margin: 0 0 $spacing-sm 0;
+    font-size: $font-size-lg;
+    font-weight: 600;
+    color: rgb(153 27 27);
+  }
+  
+  .message {
+    margin: 0 0 $spacing-lg 0;
+    color: rgb(153 27 27);
+  }
+}
+
+.retryButton {
+  @include button-primary;
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-sm;
+  background-color: rgb(153 27 27);
+  
+  &:hover:not(:disabled) {
+    background-color: rgb(127 29 29);
+  }
+}
