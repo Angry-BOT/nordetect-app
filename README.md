@@ -2,6 +2,8 @@
 
 A full-stack web application for monitoring sensor readings from agricultural IoT devices, built with modern technologies and following best practices.
 
+<img width="2556" height="1293" alt="Screenshot 2025-09-13 at 9 17 55 PM" src="https://github.com/user-attachments/assets/fcfcd995-19c9-4c05-ba42-34c638cdb3f3" />
+
 ## 🚀 Features
 
 ### Backend (NestJS + TypeScript)
