@@ -97,7 +97,11 @@ const Dashboard: React.FC = () => {
             />
           )}
 
-          {latestReadings.length === 0 ? (
+          {latestLoading ? (
+            <div className={styles.loadingSection}>
+              <LoadingSpinner size="md" text="Loading device readings..." />
+            </div>
+          ) : latestReadings.length === 0 ? (
             <div className={styles.emptyState}>
               <div className={styles.emptyIcon}>📊</div>
               <h3>No Devices Found</h3>
@@ -123,12 +127,22 @@ const Dashboard: React.FC = () => {
         </section>
 
         {/* Nitrogen Chart */}
-        {allReadings.length > 0 && (
-          <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>Nitrogen Levels Trend</h2>
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Nitrogen Levels Trend</h2>
+          {allLoading ? (
+            <div className={styles.loadingSection}>
+              <LoadingSpinner size="md" text="Loading chart data..." />
+            </div>
+          ) : allReadings.length > 0 ? (
             <ReadingChart readings={allReadings} />
-          </section>
-        )}
+          ) : (
+            <div className={styles.emptyChart}>
+              <div className={styles.emptyIcon}>📈</div>
+              <h3>No Chart Data</h3>
+              <p>No readings from the last 24 hours to display in chart.</p>
+            </div>
+          )}
+        </section>
       </main>
     </div>
   );

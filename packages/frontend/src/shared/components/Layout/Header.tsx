@@ -3,7 +3,7 @@ import { useStats, useHealthCheck } from '@/features/readings/hooks/useReadings'
 import styles from './Header.module.scss';
 
 export const Header: React.FC = () => {
-  const { data: stats } = useStats();
+  const { data: stats, isLoading: statsLoading } = useStats();
   const { data: health } = useHealthCheck();
 
   return (
@@ -15,7 +15,18 @@ export const Header: React.FC = () => {
         </div>
         
         <div className={styles.stats}>
-          {stats && (
+          {statsLoading ? (
+            <>
+              <div className={styles.stat}>
+                <span className={styles.statValue}>--</span>
+                <span className={styles.statLabel}>Devices</span>
+              </div>
+              <div className={styles.stat}>
+                <span className={styles.statValue}>--</span>
+                <span className={styles.statLabel}>Readings</span>
+              </div>
+            </>
+          ) : stats ? (
             <>
               <div className={styles.stat}>
                 <span className={styles.statValue}>{stats.deviceCount}</span>
@@ -26,7 +37,7 @@ export const Header: React.FC = () => {
                 <span className={styles.statLabel}>Readings</span>
               </div>
             </>
-          )}
+          ) : null}
           
           <div className={styles.status}>
             <span 

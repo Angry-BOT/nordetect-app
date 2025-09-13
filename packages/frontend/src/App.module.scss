@@ -102,6 +102,39 @@
   padding: $spacing-xl;
 }
 
+.loadingSection {
+  @include flex-center;
+  min-height: 200px;
+  padding: $spacing-xl;
+}
+
+.emptyChart {
+  @include card;
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-2xl;
+  text-align: center;
+  color: $text-muted;
+  min-height: 300px;
+  
+  .emptyIcon {
+    font-size: 4rem;
+    margin-bottom: $spacing-lg;
+  }
+  
+  h3 {
+    margin: 0 0 $spacing-sm 0;
+    color: $text-secondary;
+    font-size: $font-size-xl;
+  }
+  
+  p {
+    margin: 0;
+    color: $text-muted;
+    max-width: 400px;
+  }
+}
+
 @include mobile-only {
   .main {
     padding: $spacing-lg $spacing-md;
