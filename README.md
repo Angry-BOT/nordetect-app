@@ -360,9 +360,23 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Feel free to email me at **shailo199925@gmail.com** 🚀.
 
 ## AI Usage
+**Tools Used**:
 
-- Tools Used: - Cursor AI for react components - Used cursor to quickly implement react components - Faced hiccups in implementing Chart Js, cursor fixed the issues quickly - Any bugs and race conditions - Chatgpt for detailed implementation plan - Gave the project spec to chatgpt, it gave a awesome implementation plan - Then gave the plan to Cursor for quick implementation of the boilerplate code & make the project structure
-- Helpful Prompt: - The main prompt that I gave to chatgpt:
+- **Chatgpt** for detailed implementation plan
+
+- Gave the project spec to chatgpt, it gave a awesome implementation plan
+- Then gave the plan to Cursor for quick implementation of the boilerplate code & make the project structure
+
+- **Cursor AI** for react components:
+
+- Used cursor to quickly implement react components
+- Faced hiccups in implementing Chart Js, cursor fixed the issues quickly
+- Any bugs and race conditions
+
+
+**Helpful Prompt**:
+
+- The main prompt that I gave to chatgpt:
 ```
 Hi chatgpt, 
 
@@ -457,7 +471,12 @@ Please give me a detailed plan of implementation for it.
     4. Make sure to follow react and typescript coding standards. 
 
 ```
-- AI Fix: - Css issues: Design issues, padding, width heights of the components - Endpoint objective: Some endpoints were not behaving as expected, which need manual intervention - for ex, /readings api was having a bad exception error due to endpoint parameters we having conflicting types - Component names: Renamed some components for better understanding - Had to fix some Lerna dependency issues, package.json config issues
+**AI Fix**:
+- Css issues: Design issues, padding, width heights of the components
+- Endpoint objective: Some endpoints were not behaving as expected, which need manual intervention
+- for ex, /readings api was having a bad exception error due to endpoint parameters we having conflicting types
+- Component names: Renamed some components for better understanding
+- Had to fix some Lerna dependency issues, package.json config issues
 
 ---
 
