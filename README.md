@@ -268,16 +268,6 @@ npm run test         # Run component tests
 - Proper error handling and logging
 - Request validation and sanitization
 
-## 🐳 Docker Support
-
-The project includes Docker configuration for easy deployment:
-
-```bash
-docker-compose up
-```
-
-This will start both frontend and backend services with proper networking.
-
 ## 🧪 Testing Strategy
 
 ### Backend Testing
@@ -340,14 +330,6 @@ FRONTEND_URL=https://your-frontend-url.com
 VITE_API_URL=https://your-api-url.com
 ```
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests and linting
-5. Submit a pull request
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -371,6 +353,100 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Tools Used: - Cursor AI for react components - Used cursor to quickly implement react components - Faced hiccups in implementing Chart Js, cursor fixed the issues quickly - Any bugs and race conditions - Chatgpt for detailed implementation plan - Gave the project spec to chatgpt, it gave a awesome implementation plan - Then gave the plan to Cursor for quick implementation of the boilerplate code & make the project structure
 - Helpful Prompt: - The main prompt that I gave to chatgpt:
+```
+Hi chatgpt, 
+
+You are a senior software developer of around 5+ years of experience is developing scalable and full stack products. You are having good amount of experience in Typescript, React Js, Nest Js, SQL.
+You design and implement systems as per given project requirements.
+
+Please give me a detailed implementation plan for the below given project specifications.
+
+Overview:
+Build a simple sensor data dashboard that demonstrates your full-stack development skills.
+
+The Challenge:
+Create a web application for monitoring sensor readings from agricultural IoT devices.
+
+Core Requirements:
+
+Backend (REST API)
+
+1. Endpoints to implement:
+    - `POST /api/readings` - Submit a new sensor reading
+    - `GET /api/readings` - Get all readings (last 24 hours)
+    - `GET /api/readings/latest` - Get the most recent reading for each device
+
+2. Simplified Data Model:
+    
+    ```json
+    {  "deviceId": "GH001",  "timestamp": "2024-03-15T10:30:00Z",  "nitrogen": 150.5,  "phosphorus": 45.2,  "ph": 6.5}
+    ```
+    
+3. Requirements:
+    - Basic input validation (reasonable ranges for values)
+    - Error handling with appropriate status codes
+    - Use any database (SQLite is fine)
+    - No authentication needed
+
+4. Stack to use:
+     - Use Nest Js for endpoints (Typescript language)
+     - SQLite for DB (SQL language)
+
+Frontend (Dashboard)
+
+1. Components to build:
+    - Dashboard showing latest reading from each device in a table or cards
+    - Simple line chart showing nitrogen levels over time (last 24 hours)
+    - Form to manually add a new reading
+    - Alert banner when nitrogen exceeds 200 or ph is outside 6.0-7.0 range
+
+2. Requirements:
+    - Use React, React query for fetching apis, 
+    - Basic styling (use scss)
+    - Show loading states
+    - Display API errors to user
+
+3. React conventions to follow:
+    1. **Structure**: Feature-based folders (`/features/readings/...`), keep files small.
+    2. **Naming**: PascalCase for components, camelCase for vars/functions, CONSTANT\_CASE for constants.
+    3. **Components**: Small, reusable, functional. Split UI (dumb) vs logic (container).
+    4. **State**: Use React Query for server state, custom hooks for shared logic.
+    5. **UI States**: Always handle loading, error, empty explicitly.
+    6. **Styling**: Stick to one system (Tailwind / CSS Modules / Styled). Be consistent.
+    7. **TypeScript**: Strong typing, no `any`, define prop interfaces.
+    8. **API**: Centralize API calls in `/api`, handle errors globally.
+    9. **Testing**: Use Jest + React Testing Library, test critical flows.
+    10. **Quality**: ESLint + Prettier + strict TS, absolute imports, use git hooks.
+    11. **Performance**: Use keys in lists, React.memo for pure UI, lazy loading for big chunks.
+
+Sample Data Creation
+    - Include at least 5-10 sample readings in your database/seed file
+    - Cover at least 2 different device IDs
+
+Evaluate proposed plan based on the following criteria:
+1. Functionality
+    - Does it meet the requirements?
+    - Do frontend and backend work together?
+
+2. Code Quality
+    - Clean, readable code
+    - Appropriate patterns for the scope
+    - Error handling
+
+4. Documentation
+    - Can we run your project easily?
+    - Clear about decisions and trade-offs
+
+Please give me a detailed plan of implementation for it.
+    1. I want to have the frontend and backend in a monorepo which is easy to start and test.
+    2. Stack for development -  
+         - Frontend -> ReactJs, React Query
+         - Backend -> NestJs, NodeJs, SQL
+         - Language -> Typescript.
+    3. Plan a folder structure and for building the project will have Lerna.  
+    4. Make sure to follow react and typescript coding standards. 
+
+```
 - AI Fix: - Css issues: Design issues, padding, width heights of the components - Endpoint objective: Some endpoints were not behaving as expected, which need manual intervention - for ex, /readings api was having a bad exception error due to endpoint parameters we having conflicting types - Component names: Renamed some components for better understanding - Had to fix some Lerna dependency issues, package.json config issues
 
 ---
