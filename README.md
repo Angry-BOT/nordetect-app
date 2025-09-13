@@ -340,10 +340,6 @@ FRONTEND_URL=https://your-frontend-url.com
 VITE_API_URL=https://your-api-url.com
 ```
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🎯 Future Enhancements based on broader scope and more time
 
 - Real-time WebSocket updates (for realtime feedback from devices)
@@ -354,6 +350,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Multi-tenant support
 - Advanced alerting with email/SMS notifications
 - Better decision for caches of data coming from endpoints (caching data)
+- There might be minor sync issues sometimes, for that you can refresh the page and it will be synced
 
 ## For support
 
