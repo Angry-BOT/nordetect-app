@@ -25,6 +25,7 @@ A full-stack web application for monitoring sensor readings from agricultural Io
 - **Alert System** for threshold violations
 - **SCSS Modules** for component-scoped styling
 - **Loading & Error States** with proper UX handling
+- **UIDesign** used material ui theme from react
 
 ### Key Functionality
 
@@ -349,7 +350,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## For support
 
-- Feel free to email me at shailo199925@gmail.com.
+- Feel free to email me at **shailo199925@gmail.com** 🚀.
 
 ## AI Usage
 
