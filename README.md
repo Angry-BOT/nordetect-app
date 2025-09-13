@@ -40,7 +40,7 @@ A full-stack web application for monitoring sensor readings from agricultural Io
 - Developing the implentation plan using AI, design decisions - ~40mins
 - Implementing the Backend - ~30mins
 - Implementing the Frontend - ~20mins
-- Testing the Backend & Frontend, Fixing Bugs - ~1hr 
+- Testing the Backend & Frontend, Fixing Bugs, Self Code Review - ~1hr 
 - Total time taken from Ideation -> Final - ~2.5 - 3hrs
 
 ## 📁 Project Structure
